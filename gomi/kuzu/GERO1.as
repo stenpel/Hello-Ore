@@ -47,7 +47,7 @@ package
 			loader = new Loader();
 			sound = new Sound();
 			sound.addEventListener(Event.OPEN, open);
-			sound.load(new URLRequest("music3.mp3"));
+			sound.load(new URLRequest("music.mp3"));
 		}
 		
 		private function init():void {
@@ -66,19 +66,16 @@ package
 		}
 		
 		private function setPan(pan:Number):void {
-			//trace("setPan: " + pan.toFixed(2));
 			var transform:SoundTransform = this.conductor.soundTransform;
 			transform.pan = pan;
 			this.conductor.soundTransform = transform;
 		}
 		
 		private function setVolume(volume:Number):void {
-			//trace("setVolume: " + volume.toFixed(2));
 			var transform:SoundTransform = this.conductor.soundTransform;
 			transform.volume = volume;
 			this.conductor.soundTransform = transform;
-		}
-		
+		}	
 		
 		//event
 		private function loop(e:Event):void {
@@ -185,12 +182,10 @@ package
 		}
 		
 		private function come_on(e:Event):void {
-			trace("come_on");
 			stage.addEventListener(MouseEvent.MOUSE_MOVE, move);
 		}
 		
 		private function get_out_here(e:Event):void {
-			trace("get_out_here");
 			stage.removeEventListener(MouseEvent.MOUSE_MOVE, move);
 			this.setVolume(.1);
 			this.setPan(0);
